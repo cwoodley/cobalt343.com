@@ -1,0 +1,41 @@
+body {
+  background:#eceaea;
+  color:#3c3c3c;
+}
+
+h1 {
+  background: url('images/logo.png') top center no-repeat;
+}
+
+nav a {color:#3c3c3c;}
+nav a:hover {background:#ba2929; color:#fff; text-shadow:0px 1px 1px #000;}
+nav a.active {color:#3c3c3c;background:#D9D9D9 !important; text-shadow:1px 1px 1px #fff  !important;}
+
+article div.image {
+  background: url('images/loading.gif') center center no-repeat;
+  border:10px solid #e1e0e0;
+  box-shadow:0 0 5px #808080;
+  -moz-box-shadow:0 0 5px #808080;
+  -webkit-box-shadow:0 0 5px #808080;
+}
+
+article a {color:#991B18;}
+
+article h2 em {
+  font:11px/15px Arial, Verdana, Tahoma, sans-serif;
+  text-transform:lowercase;
+}
+
+article p {
+  line-height:22px;
+  margin-bottom:20px;
+  text-shadow:1px 1px 0 #fff;
+}
+
+img.right {
+  border:5px solid #e1e0e0;
+  box-shadow:0 0 5px #808080;
+  -moz-box-shadow:0 0 5px #808080;
+  -webkit-box-shadow:0 0 5px #808080;
+  
+}

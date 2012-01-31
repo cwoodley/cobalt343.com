@@ -1,0 +1,106 @@
+@import url('../libs/html5-reset-1.4.css');
+@import url('../fonts/goudy/stylesheet.css');
+@import url('../fonts/league/stylesheet.css');
+
+body {
+  font:14px/54px OFLSortsMillGoudyRegular, Palatino, "Palatino Linotype", Georgia, Times, "Times New Roman", serif;
+}
+
+div#container {
+  margin:40px auto;
+  width:960px;
+}
+
+h1 {
+    height:97px;
+    text-indent:-999em;
+    width:320px;
+  }
+
+div#secondary {
+  float:left;
+  position:fixed;
+  width:320px;
+}
+
+nav {
+  font:30px/35px LeagueGothicRegular, Helvetica, Arial, sans-serif;
+}
+
+  nav li {margin:18px 0 0;}
+
+  nav a {
+    display:block;
+    padding-left:10px;
+    text-decoration:none;
+    text-shadow:1px 1px 1px #fff;
+    text-transform:uppercase;
+  }
+  
+section#meta {
+  line-height:16px;
+  margin:20px 0 0 10px;
+}
+  
+ul.social li {
+  display:inline;  
+  float:left;
+  list-style:none;
+  margin-right:10px;
+}
+  
+  
+/* =================== */
+/* = PRIMARY CONTENT = */
+/* =================== */
+div#primary {
+  float:right;
+  width:570px;
+}
+
+article {
+  padding:10px;
+  width:570px;
+}
+
+  article div.image {
+    height:250px;
+    overflow:hidden;
+    text-align:center;
+    margin:0 auto 10px;
+    width:550px;
+  }
+  
+    article div.image img {width:550px; display:block;}
+
+  article h2 {
+    display:inline;
+    font:30px/35px LeagueGothicRegular, Helvetica, Arial, sans-serif; 
+    text-shadow:1px 1px 1px #fff;
+    text-transform:uppercase;
+  }
+  
+  article span.info {
+    float:right;
+    font-family: Arial, Verdana, Tahoma, sans-serif;
+    font-size:10px;
+    text-transform:lowercase;
+  }
+  
+  article p {line-height:22px;}
+  
+  article a {
+    text-decoration:none;
+  }
+  
+  article a:hover {
+    text-decoration:underline;
+  }
+  
+body#p-contact article {line-height:22px;}
+
+img.right {
+  display:inline;
+  float:right;
+  margin:0 10px 0 10px;
+}
