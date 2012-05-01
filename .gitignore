@@ -1,1 +1,6 @@
 .DS_Store
+
+.sass-cache/
+wp-content/themes/twentyten/
+wp-content/themes/twentyeleven/
+wp-content/uploads/
