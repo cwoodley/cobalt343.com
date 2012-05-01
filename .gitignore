@@ -4,3 +4,6 @@
 wp-content/themes/twentyten/
 wp-content/themes/twentyeleven/
 wp-content/uploads/
+sitemap.xml
+sitemap.xml.gz
+wp-content/files_mf/

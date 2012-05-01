@@ -22,13 +22,6 @@
   <!-- Favicons
   ================================================== -->
   <link rel="shortcut icon" href="images/favicon.ico">
-  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
-  
-  <!-- JS -->
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
-  <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/media/javascripts/presentation.js"></script>
 
   <!-- CSS -->
   <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/media/stylesheets/compiled/style.css" />
@@ -37,3 +30,25 @@
 </head>
 
 <body <?php body_class(); ?>>
+
+  <div id="wrap" class="container">
+    
+    <div id="main" class="sixteen columns clearfix">
+      
+      <header id="logo">
+        Cale Woodley
+      </header>
+
+      <div class="columns three alpha">
+        <nav id="core-nav">
+          <ul>
+            <li><a href="#">nav item</a></li>
+            <li><a href="#">nav item</a></li>
+            <li><a href="#">nav item</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div id="page" class="columns thirteen omega">
+        
+      

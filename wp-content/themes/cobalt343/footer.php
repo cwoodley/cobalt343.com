@@ -1,5 +1,16 @@
-<!--[if lt IE 7 ]>
-  <script src="<?php bloginfo('template_url'); ?>/media/javascripts/dd_belatedpng.js"></script>
-<![endif]-->
+    </div>
+    <!-- /page -->
+
+  </div>
+  <!-- /main -->
+
+</div>
+<!-- /wrap -->
+
+<div id="footer">
+  sup
+</div>
+
+<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/media/javascripts/presentation.js"></script>
 </body>
 </html>

@@ -1,0 +1,100 @@
+@import url(base.css);
+@import url(skeleton.css);
+/*
+* Skeleton V1.1
+* Copyright 2011, Dave Gamache
+* www.getskeleton.com
+* Free to use under the MIT license.
+* http://www.opensource.org/licenses/mit-license.php
+* 8/17/2011
+*/
+/* Table of Content
+==================================================
+  #Site Styles
+  #Page Styles
+  #Media Queries
+  #Font-Face */
+/* #Site Styles
+================================================== */
+html, body {
+  height: 100%; }
+
+#wrap {
+  min-height: 100%; }
+
+#main {
+  overflow: auto;
+  padding-bottom: 45px; }
+
+/* must be same height as the footer */
+#footer {
+  position: relative;
+  margin-top: -45px;
+  /* negative value of footer height */
+  height: 45px;
+  clear: both; }
+
+.alignleft {
+  display: inline;
+  float: left; }
+
+.alignright {
+  display: inline;
+  float: right; }
+
+img.alignright, .alignright img {
+  margin: 0 0 20px 20px; }
+
+img.alignleft, .alignleft img {
+  margin: 0 20px 20px 0; }
+
+ul.nostyle {
+  margin: 0;
+  padding: 0; }
+  ul.nostyle li {
+    margin: 0;
+    line-height: auto; }
+
+body {
+  background: #131313 url("../../images/core/body.png") top left repeat;
+  color: #fff;
+  font-family: "MuseoSans500Regular", "Helvetica Neue", Verdana, Geneva, Arial, sans-serif; }
+
+header#logo {
+  font-size: 40px;
+  letter-spacing: -1px;
+  margin: 65px 0; }
+
+nav#core-nav a {
+  color: #fff;
+  text-decoration: none; }
+  nav#core-nav a:hover {
+    text-decoration: underline; }
+
+h1, h2, h3, h4, h5, h6 {
+  color: #fff;
+  font-family: "MuseoSans500Regular", "Helvetica Neue", Verdana, Geneva, Arial, sans-serif;
+  font-size: 22px;
+  letter-spacing: -1px; }
+
+/* #Page Styles
+================================================== */
+/* #Media Queries
+================================================== */
+/* Smaller than standard 960 (devices and browsers) */
+/* Tablet Portrait size to standard 960 (devices and browsers) */
+/* All Mobile Sizes (devices and browser) */
+/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+/* #Font-Face
+================================================== */
+/*  This is the proper syntax for an @font-face file
+    Just create a "fonts" folder at the root,
+    copy your FontName into code below and remove
+    comment brackets */
+@font-face {
+  font-family: 'MuseoSans500Regular';
+  src: url("../../fonts/museosans_500_macroman/MuseoSans_500-webfont.eot");
+  src: url("../../fonts/museosans_500_macroman/MuseoSans_500-webfont.eot?#iefix") format("embedded-opentype"), url("../../fonts/museosans_500_macroman/MuseoSans_500-webfont.woff") format("woff"), url("../../fonts/museosans_500_macroman/MuseoSans_500-webfont.ttf") format("truetype"), url("../../fonts/museosans_500_macroman/MuseoSans_500-webfont.svg#MuseoSans500Regular") format("svg");
+  font-weight: normal;
+  font-style: normal; }

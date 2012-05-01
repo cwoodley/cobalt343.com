@@ -9,15 +9,24 @@
 
 /* Table of Content
 ==================================================
-	#Site Styles
-	#Page Styles
-	#Media Queries
-	#Font-Face */
+  #Site Styles
+  #Page Styles
+  #Media Queries
+  #Font-Face */
 
 /* #Site Styles
 ================================================== */
 @import "base.css";
 @import "skeleton.css";
+
+html, body {height: 100%;}
+#wrap {min-height: 100%;}
+#main {overflow:auto;
+  padding-bottom: 45px;}  /* must be same height as the footer */
+#footer {position: relative;
+  margin-top: -45px; /* negative value of footer height */
+  height: 45px;
+  clear:both;} 
 
 .alignleft {display:inline;float:left;}
 @mixin alignleft {display:inline;float:left;}
@@ -35,42 +44,71 @@ ul.nostyle {
   li {margin: 0;line-height: auto;}
 }
 
+body {
+  background:#131313 url('../../images/core/body.png') top left repeat;
+  color: #fff;
+  font-family:"MuseoSans500Regular", "Helvetica Neue", Verdana, Geneva, Arial, sans-serif;
+}
+
+header#logo {
+  font-size: 40px;
+  letter-spacing: -1px;
+  margin:65px 0;
+}
+
+nav#core-nav {
+
+  a {
+    color: #fff;
+    text-decoration: none;
+
+    &:hover {text-decoration: underline;}
+  }
+}
+
+h1,h2,h3,h4,h5,h6 {
+  color: #fff;
+  font-family:"MuseoSans500Regular", "Helvetica Neue", Verdana, Geneva, Arial, sans-serif;
+  font-size:22px;
+  letter-spacing:-1px;
+}
+
 /* #Page Styles
 ================================================== */
 
 /* #Media Queries
 ================================================== */
 
-	/* Smaller than standard 960 (devices and browsers) */
-	@media only screen and (max-width: 959px) {}
+  /* Smaller than standard 960 (devices and browsers) */
+  @media only screen and (max-width: 959px) {}
 
-	/* Tablet Portrait size to standard 960 (devices and browsers) */
-	@media only screen and (min-width: 768px) and (max-width: 959px) {}
+  /* Tablet Portrait size to standard 960 (devices and browsers) */
+  @media only screen and (min-width: 768px) and (max-width: 959px) {}
 
-	/* All Mobile Sizes (devices and browser) */
-	@media only screen and (max-width: 767px) {}
+  /* All Mobile Sizes (devices and browser) */
+  @media only screen and (max-width: 767px) {}
 
-	/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
-	@media only screen and (min-width: 480px) and (max-width: 767px) {}
+  /* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+  @media only screen and (min-width: 480px) and (max-width: 767px) {}
 
-	/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
-	@media only screen and (max-width: 479px) {}
+  /* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+  @media only screen and (max-width: 479px) {}
 
 
 /* #Font-Face
 ================================================== */
-/* 	This is the proper syntax for an @font-face file
-		Just create a "fonts" folder at the root,
-		copy your FontName into code below and remove
-		comment brackets */
+/*  This is the proper syntax for an @font-face file
+    Just create a "fonts" folder at the root,
+    copy your FontName into code below and remove
+    comment brackets */
 
-/*	@font-face {
-	    font-family: 'FontName';
-	    src: url('../fonts/FontName.eot');
-	    src: url('../fonts/FontName.eot?iefix') format('eot'),
-	         url('../fonts/FontName.woff') format('woff'),
-	         url('../fonts/FontName.ttf') format('truetype'),
-	         url('../fonts/FontName.svg#webfontZam02nTh') format('svg');
-	    font-weight: normal;
-	    font-style: normal; }
-*/
+@font-face {
+  font-family: 'MuseoSans500Regular';
+  src: url('../../fonts/museosans_500_macroman/MuseoSans_500-webfont.eot');
+  src: url('../../fonts/museosans_500_macroman/MuseoSans_500-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../../fonts/museosans_500_macroman/MuseoSans_500-webfont.woff') format('woff'),
+       url('../../fonts/museosans_500_macroman/MuseoSans_500-webfont.ttf') format('truetype'),
+       url('../../fonts/museosans_500_macroman/MuseoSans_500-webfont.svg#MuseoSans500Regular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  }

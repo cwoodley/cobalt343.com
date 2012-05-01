@@ -50,4 +50,31 @@ add_filter( 'the_generator', create_function('$a', "return null;") );
 // Remove usless 3.1 admin bar
 remove_action('init', 'wp_admin_bar_init');
 
+wp_deregister_script( 'jquery' );
+wp_register_script( 'jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js');
+wp_enqueue_script( 'jquery' );
+#DEREGISTER DEFAULT JQUERY INCLUDES
+    wp_deregister_script('jquery-ui-core');
+    wp_deregister_script('jquery-ui-tabs');
+    wp_deregister_script('jquery-ui-sortable');
+    wp_deregister_script('jquery-ui-draggable');
+    wp_deregister_script('jquery-ui-droppable');
+    wp_deregister_script('jquery-ui-selectable');
+    wp_deregister_script('jquery-ui-resizable');
+    wp_deregister_script('jquery-ui-dialog');
+
+    #LOAD THE GOOGLE API JQUERY INCLUDES
+    wp_register_script('jquery_ui', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js', false, '1.8.18', false);
+
+    #REGISTER CUSTOM JQUERY INCLUDES
+    wp_enqueue_script('jquery_ui');
+
+    add_action('get_header', 'my_filter_head');
+
+function my_filter_head() {
+  remove_action('wp_head', '_admin_bar_bump_cb');
+}
+
+add_filter( 'show_admin_bar', '__return_false' );
+
 ?>
