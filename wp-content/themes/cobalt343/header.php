@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title> <?php the_title(); ?> &raquo; <?php bloginfo('name'); ?></title>
+  <title> <?php the_title(); ?> &raquo; cobalt343.com</title>
 
   <meta name="description" content="<?php if (have_posts()): while (have_posts()): the_post(); echo strip_tags(get_the_excerpt()); endwhile; endif; ?>" />
   
@@ -42,13 +42,12 @@
       <div class="columns three alpha">
         <nav id="core-nav">
           <ul>
-            <li><a href="#">nav item</a></li>
-            <li><a href="#">nav item</a></li>
-            <li><a href="#">nav item</a></li>
+            <?php
+            wp_list_pages('title_li=&exclude=');
+            ?>
           </ul>
         </nav>
       </div>
 
       <div id="page" class="columns thirteen omega">
-        
       

@@ -77,8 +77,75 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 22px;
   letter-spacing: -1px; }
 
+.flexslider {
+  background: none !important;
+  border: none !important;
+  border-radius: 0; }
+
+.flex-direction-nav li a {
+  display: none; }
+
+.flex-control-nav li {
+  margin: 0 0 0 10px; }
+.flex-control-nav a {
+  background: url("../../images/core/slide-control_nav.jpg");
+  height: 8px;
+  width: 8px; }
+  .flex-control-nav a.active, .flex-control-nav a:hover {
+    background-position: 0 -8px; }
+
+.flex-direction-nav li a {
+  color: #fff;
+  width: auto;
+  height: auto;
+  margin: 0;
+  display: block;
+  background: none;
+  position: absolute;
+  right: 0;
+  top: 105%;
+  cursor: pointer;
+  text-indent: 0; }
+  .flex-direction-nav li a.prev {
+    left: -3px; }
+
+.flex-control-nav {
+  bottom: -44px; }
+  .flex-control-nav li {
+    margin: 0 0 0 10px; }
+  .flex-control-nav a {
+    background: url("../../images/core/slide-control_nav.jpg");
+    height: 8px !important;
+    width: 8px !important; }
+    .flex-control-nav a.active {
+      background-position: 0 -8px !important; }
+
 /* #Page Styles
 ================================================== */
+body.home #banner {
+  border: 3px solid #cbcbcb;
+  margin-bottom: 50px;
+  max-height: 485px; }
+body.home .flexslider {
+  background: none !important;
+  border: none !important;
+  border-radius: 0; }
+body.home .flex-direction-nav li a {
+  display: none; }
+body.home .flex-control-nav li {
+  margin: 0 0 0 10px; }
+body.home .flex-control-nav a {
+  background: url("../../images/core/slide-control_nav.jpg");
+  height: 8px;
+  width: 8px; }
+  body.home .flex-control-nav a.active, body.home .flex-control-nav a:hover {
+    background-position: 0 -8px; }
+
+body.page-template-portfolio-php article.portfolio-item {
+  width: 100%; }
+  body.page-template-portfolio-php article.portfolio-item header.meta .five {
+    text-align: right; }
+
 /* #Media Queries
 ================================================== */
 /* Smaller than standard 960 (devices and browsers) */

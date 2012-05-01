@@ -2,28 +2,42 @@
 
 <?php get_header(); ?>
 
-<?php if (have_posts()): while (have_posts()): the_post(); ?>
+<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/media/libs/flexslider/flexslider.css">
 
-  <h1><?php the_title(); ?></h1>
+<?php if (have_posts()): while (have_posts()): the_post(); ?>
   
-  <div id="banner" class="thirteen columns alpha omega flexslider">
-    <ul id="" class="slides nostyle">
+  <div id="banner" class="">
+    <div class="flexslider">
+      <ul id="" class="slides nostyle">
         <?php 
-            $slides = get_order_field('slideshow_image');
- 
-            foreach($slides as $slide){
-               echo get_image('slideshow_image',1,$slide)."<br />";
-            }
+          $slides = getFieldOrder('slideshow_image');
+          $crop="w=760&h=560&zc=1&q=100";
+
+          foreach($slides as $slide){
+            echo "<li>".get_image('slideshow_image',1,$slide,1,NULL,NULL)."</li>";
+          }
         ?>
-    </ul>
+      </ul>
+    </div>
   </div>
-  <ul id="slidercontrols" class="flex-direction-nav">
-    <li><a class="prev" href="#">Previous</a></li>
-    <li><a class="next" href="#">Next</a></li>
-  </ul>
 
   <div class="the_content">
     <?php echo the_content(); ?>
   </div>
-  
-<?php endwhile; endif; get_footer(); ?>
+
+
+<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/media/libs/flexslider/jquery.flexslider-min.js"></script>
+<script type="text/javascript">
+  $(window).load(function() {
+    $('.flexslider').flexslider({
+      animation: "fade",
+      controlNav: "false",
+      controlsContainer: "#slidercontrols",
+      slideshowSpeed: "3000" // speed between transitions
+    });
+  });
+</script>
+<?php endwhile; endif; ?>
+
+
+<?php get_footer(); ?>
