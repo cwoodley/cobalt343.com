@@ -142,9 +142,30 @@ body.home .flex-control-nav a {
     background-position: 0 -8px; }
 
 body.page-template-portfolio-php article.portfolio-item {
+  margin-bottom: 20px;
   width: 100%; }
+  body.page-template-portfolio-php article.portfolio-item a {
+    color: #27bad5;
+    text-decoration: none; }
+    body.page-template-portfolio-php article.portfolio-item a:hover {
+      text-decoration: underline; }
+  body.page-template-portfolio-php article.portfolio-item h2 {
+    line-height: 20px;
+    margin-bottom: 0; }
   body.page-template-portfolio-php article.portfolio-item header.meta .five {
+    line-height: 18px;
     text-align: right; }
+  body.page-template-portfolio-php article.portfolio-item div.banner img {
+    border: 3px solid #cbcbcb;
+    display: block; }
+  body.page-template-portfolio-php article.portfolio-item footer {
+    clear: both;
+    display: block;
+    text-align: center;
+    width: 100%; }
+  body.page-template-portfolio-php article.portfolio-item div.flexslider {
+    display: none;
+    margin-bottom: 20px; }
 
 /* #Media Queries
 ================================================== */

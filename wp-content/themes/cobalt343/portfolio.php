@@ -28,8 +28,11 @@
         Studio: <?php echo get('info_studio'); ?>
       </div>
     </header>
-    <div class="slideshow">
-      <div class="flexslider">
+    <div class="slideshow thirteen columns alpha omega">
+      <div class="banner">
+        <?php echo get_image('info_banner'); ?>
+      </div>
+      <div class="flexslider post_<?php the_ID(); ?>">
         <ul class="slides nostyle">
           <?php 
             $slides = getFieldOrder('slideshow_image');
@@ -42,6 +45,9 @@
         </ul>
       </div>
     </div>
+    <footer class="clearfix">
+      <a href="#" class="post_<?php the_ID(); ?>">Show</a>
+    </footer>
   </article>
   <?php endwhile; ?>
 <?php endif; wp_reset_query(); ?>
@@ -58,6 +64,22 @@
       slideshowSpeed: "3000"
     });
   });
+
+
+  jQuery(document).ready(function($) {
+    $('footer.clearfix a').click(function(event) {
+      var linkID = $(this).attr('class');
+      var parentArticle = $('article#'+linkID);
+
+      $('article#'+linkID+' div.banner').slideToggle('slow');
+      $('div.'+linkID).slideToggle('slow');
+
+      var text = $(this).text();
+      $(this).text(
+        text == "Show" ? "Hide" : "Show");
+    });
+  });
+  
 </script>
 
 <?php get_footer(); ?>

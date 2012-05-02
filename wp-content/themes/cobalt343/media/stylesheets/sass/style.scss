@@ -34,6 +34,8 @@ html, body {height: 100%;}
 .alignright {display:inline;float:right;}
 @mixin alignright {display:inline;float:right;}
 
+$highlight:#27bad5;
+
 img.alignright, .alignright img {margin: 0 0 20px 20px;}
 img.alignleft, .alignleft img {margin: 0 20px 20px 0;}
 
@@ -173,14 +175,48 @@ body.home {
 body.page-template-portfolio-php {
 
   article.portfolio-item {
+    margin-bottom: 20px;
     width: 100%;
+
+    a {
+      color: $highlight;
+      text-decoration:none;
+
+      &:hover {text-decoration:underline;}
+    }
+
+    h2 {
+      line-height:20px;
+      margin-bottom:0;
+    }
 
     header.meta {
 
       .five {
+        line-height:18px;
         text-align:right;
       }
     }
+
+    div.banner {
+      img {
+        border:3px solid #cbcbcb;
+        display: block;
+      }
+    }
+
+    footer {
+      clear:both;
+      display: block;
+      text-align:center;
+      width: 100%;
+    }
+  
+    div.flexslider {
+      display: none;
+      margin-bottom:20px;
+    }
+
   }
 }
 
