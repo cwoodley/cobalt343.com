@@ -21,7 +21,7 @@
     <header class="meta">
       <div class="columns eight alpha omega">
         <h2><?php the_title(); ?></h2>
-        <a href="<?php echo get('info_link'); ?>"><?php echo get('info_link'); ?></a>
+        <a href="<?php echo get('info_link'); ?>"><?php echo get('info_link'); ?></a> <?php if (get('info_linknote')) {echo "<span class='linknote'>-".get('info_linknote')."</span>";} ?>
       </div>
       <div class="columns five alpha omega">
         Launched: <?php echo get('info_year'); ?><br />

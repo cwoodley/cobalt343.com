@@ -8,12 +8,6 @@
 * http://www.opensource.org/licenses/mit-license.php
 * 8/17/2011
 */
-/* Table of Content
-==================================================
-  #Site Styles
-  #Page Styles
-  #Media Queries
-  #Font-Face */
 /* #Site Styles
 ================================================== */
 html, body {
@@ -55,9 +49,12 @@ ul.nostyle {
     margin: 0;
     line-height: auto; }
 
+a {
+  color: #2d2d2d; }
+
 body {
-  background: #131313 url("../../images/core/body.png") top left repeat;
-  color: #fff;
+  background: #e6e6e6;
+  color: #2d2d2d;
   font-family: "MuseoSans500Regular", "Helvetica Neue", Verdana, Geneva, Arial, sans-serif; }
 
 header#logo {
@@ -66,13 +63,12 @@ header#logo {
   margin: 65px 0; }
 
 nav#core-nav a {
-  color: #fff;
   text-decoration: none; }
   nav#core-nav a:hover {
     text-decoration: underline; }
 
 h1, h2, h3, h4, h5, h6 {
-  color: #fff;
+  color: #2d2d2d;
   font-family: "MuseoSans500Regular", "Helvetica Neue", Verdana, Geneva, Arial, sans-serif;
   font-size: 22px;
   letter-spacing: -1px; }
@@ -141,14 +137,18 @@ body.home .flex-control-nav a {
   body.home .flex-control-nav a.active, body.home .flex-control-nav a:hover {
     background-position: 0 -8px; }
 
+body.page-template-portfolio-php h1 {
+  display: none; }
 body.page-template-portfolio-php article.portfolio-item {
   margin-bottom: 20px;
   width: 100%; }
   body.page-template-portfolio-php article.portfolio-item a {
-    color: #27bad5;
+    color: #10aea1;
     text-decoration: none; }
     body.page-template-portfolio-php article.portfolio-item a:hover {
       text-decoration: underline; }
+  body.page-template-portfolio-php article.portfolio-item .linknote {
+    font-size: 10px; }
   body.page-template-portfolio-php article.portfolio-item h2 {
     line-height: 20px;
     margin-bottom: 0; }
