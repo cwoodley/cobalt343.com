@@ -8,10 +8,6 @@
     </IfModule>
  </IfModule>
 
-# fix file uploads
-php_value upload_max_filesize 250M
-php_value post_max_size 250M
-php_value memory_limit 170M
 # BEGIN WordPress
 <IfModule mod_rewrite.c>
 RewriteEngine On
@@ -23,3 +19,6 @@ RewriteRule . /index.php [L]
 </IfModule>
 
 # END WordPress
+redirect 301 /concepts.php /portfolio/
+redirect 301 /builds.php /portfolio/
+redirect 301 /contact.php /contact/
