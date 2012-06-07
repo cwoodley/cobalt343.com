@@ -21,8 +21,7 @@ function mediadescSpanFadeOut( postid, ame_mediadesc ) {
 	jQuery("span#ame_mediadesc" + postid).fadeOut('fast', function() {
 		var loading = '<img border="0" alt="" src="' + ameAjaxL10n.imgUrl + 'loader.gif" align="absbottom" /> ' + ameAjaxL10n.pleaseWait;
 		jQuery("span#ame_mediadesc" + postid).fadeIn('fast', function() {
-			var ame_sack = new sack(
-			ameAjaxL10n.requestUrl);
+			var ame_sack = new sack( ajaxurl );
 			ame_sack.execute = 1;
 			ame_sack.method = 'POST';
 			ame_sack.setVar( "action", "ame_ajax_save_mediadesc" );
@@ -53,8 +52,7 @@ function tagSpanFadeOut( postid, ame_tags ) {
 	jQuery("span#ame_tags" + postid).fadeOut('fast', function() {
 		var loading = '<img border="0" alt="" src="' + ameAjaxL10n.imgUrl + 'loader.gif" align="absbottom" /> ' + ameAjaxL10n.pleaseWait;
 		jQuery("span#ame_tags" + postid).fadeIn('fast', function() {
-			var ame_sack = new sack(
-			ameAjaxL10n.requestUrl);
+			var ame_sack = new sack( ajaxurl );
 			ame_sack.execute = 1;
 			ame_sack.method = 'POST';
 			ame_sack.setVar( "action", "ame_ajax_save_tags" );
@@ -71,8 +69,7 @@ function catSpanFadeOut( postid, ame_cats ) {
 	//jQuery("span#ame_category" + postid + ", a#thickboxlink" + postid).fadeOut('fast', function() {
 		var loading = '<img border="0" alt="" src="' + ameAjaxL10n.imgUrl + 'loader.gif" align="absbottom" /> ' + ameAjaxL10n.pleaseWait;
 		jQuery("span#ame_category" + postid).fadeIn('fast', function() {
-			var ame_sack = new sack(
-			ameAjaxL10n.requestUrl);
+			var ame_sack = new sack( ajaxurl );
 			ame_sack.execute = 1;
 			ame_sack.method = 'POST';
 			ame_sack.setVar( "action", "ame_ajax_save_categories" );
@@ -100,8 +97,7 @@ function linkcatSpanFadeOut( linkid, ame_linkcats ) {
 	//jQuery("span#ame_linkcategory" + linkid + ", a#thickboxlink" + linkid).fadeOut('fast', function() {
 		var loading = '<img border="0" alt="" src="' + ameAjaxL10n.imgUrl + 'loader.gif" align="absbottom" /> ' + ameAjaxL10n.pleaseWait;
 		jQuery("span#ame_linkcategory" + linkid).fadeIn('fast', function() {
-			var ame_sack = new sack(
-			ameAjaxL10n.requestUrl);
+			var ame_sack = new sack( ajaxurl );
 			ame_sack.execute = 1;
 			ame_sack.method = 'POST';
 			ame_sack.setVar( "action", "ame_ajax_save_linkcategories" );
@@ -126,8 +122,7 @@ function ame_ajax_save_linkcategories( linkid ) {
 }
 
 function ame_ajax_set_commentstatus( postid, status, posttype ) {
-	var ame_sack = new sack(
-	ameAjaxL10n.requestUrl);
+	var ame_sack = new sack( ajaxurl );
 	ame_sack.execute = 1;
 	ame_sack.method = 'POST';
 	ame_sack.setVar( "action", "ame_ajax_set_commentstatus" );
@@ -139,8 +134,7 @@ function ame_ajax_set_commentstatus( postid, status, posttype ) {
 }
 
 function ame_ajax_get_pageorder( pageordertable ) {
-	var ame_sack = new sack(
-	ameAjaxL10n.requestUrl);
+	var ame_sack = new sack( ajaxurl );
 	ame_sack.execute = 1;
 	ame_sack.method = 'POST';
 	ame_sack.setVar( "action", "ame_get_pageorder" );
@@ -150,8 +144,7 @@ function ame_ajax_get_pageorder( pageordertable ) {
 }
 
 function ame_ajax_toggle_imageset( setid ) {
-	var ame_sack = new sack(
-	ameAjaxL10n.requestUrl);
+	var ame_sack = new sack( ajaxurl );
 	ame_sack.execute = 1;
 	ame_sack.method = 'POST';
 	ame_sack.setVar( "action", "ame_ajax_toggle_imageset" );
@@ -162,8 +155,7 @@ function ame_ajax_toggle_imageset( setid ) {
 
 function ame_ajax_toggle_showinvisposts( status ) {
 	jQuery("#ame_toggle_showinvisposts").prop("value", ameAjaxL10n.pleaseWait);
-	var ame_sack = new sack(
-	ameAjaxL10n.requestUrl);
+	var ame_sack = new sack( ajaxurl );
 	ame_sack.execute = 1;
 	ame_sack.method = 'POST';
 	ame_sack.setVar( "action", "ame_toggle_showinvisposts" );
@@ -174,8 +166,7 @@ function ame_ajax_toggle_showinvisposts( status ) {
 
 function ame_ajax_toggle_orderoptions( status ) {
 	jQuery("#ame_order2_loader").html(ameAjaxL10n.pleaseWait);
-	var ame_sack = new sack(
-	ameAjaxL10n.requestUrl);
+	var ame_sack = new sack( ajaxurl );
 	ame_sack.execute = 1;
 	ame_sack.method = 'POST';
 	ame_sack.setVar( "action", "ame_toggle_orderoptions" );
@@ -187,8 +178,7 @@ function ame_ajax_toggle_orderoptions( status ) {
 function ame_ajax_order_save( cat_id, posttype ) {
 	var neworderid = jQuery("input#ame_" + posttype + "order" + cat_id).prop('value');
 	jQuery("span#ame_order_loader" + cat_id).show();
-	var ame_sack = new sack(
-	ameAjaxL10n.requestUrl);
+	var ame_sack = new sack( ajaxurl );
 	ame_sack.execute = 1;
 	ame_sack.method = 'POST';
 	ame_sack.setVar( "action", "ame_save_order" );
@@ -201,37 +191,45 @@ function ame_ajax_order_save( cat_id, posttype ) {
 
 function ame_slug_edit( cat_id, posttype ) {
 	var newslug = jQuery("input#ame_slug" + cat_id).prop('value');
-	var ame_sack = new sack(
-	ameAjaxL10n.requestUrl);
+	var ame_sack = new sack( ajaxurl );
 	ame_sack.execute = 1;
 	ame_sack.method = 'POST';
 	ame_sack.setVar( "action", "ame_slug_edit" );
+	ame_sack.setVar( "col_no", jQuery('.widefat thead tr th').length );
 	ame_sack.setVar( "category_id", cat_id );
 	ame_sack.setVar( "posttype", posttype );
 	ame_sack.onError = function() { alert('Ajax error on editing post slug') };
 	ame_sack.runAJAX();
 }
 
-function ame_ajax_set_visibility( cat_id, status, posttype ) {
-	var ame_sack = new sack(
-	ameAjaxL10n.requestUrl);
+function ame_ajax_set_visibility( post_id, status, posttype ) {
+	var ame_sack = new sack( ajaxurl );
 	ame_sack.execute = 1;
 	ame_sack.method = 'POST';
 	ame_sack.setVar( "action", "ame_toggle_visibility" );
-	ame_sack.setVar( "category_id", cat_id );
+	ame_sack.setVar( "category_id", post_id );
 	ame_sack.setVar( "vis_status", status );
 	ame_sack.setVar( "posttype", posttype );
 	ame_sack.onError = function() { alert('Ajax error on toggling visibility') };
 	ame_sack.runAJAX();
 }
 
-function ame_ajax_set_postdate( cat_id, pickedDate, posttype ) {
-	var ame_sack = new sack(
-	ameAjaxL10n.requestUrl);
+function ame_ajax_set_sticky( post_id, posttype ) {
+	var ame_sack = new sack( ajaxurl );
+	ame_sack.execute = 1;
+	ame_sack.method = 'POST';
+	ame_sack.setVar( "action", "ame_toggle_sticky" );
+	ame_sack.setVar( "post_id", post_id );
+	ame_sack.onError = function() { alert('Ajax error on toggling sticky') };
+	ame_sack.runAJAX();
+}
+
+function ame_ajax_set_postdate( post_id, pickedDate, posttype ) {
+	var ame_sack = new sack( ajaxurl );
 	ame_sack.execute = 1;
 	ame_sack.method = 'POST';
 	ame_sack.setVar( "action", "ame_set_date" );
-	ame_sack.setVar( "category_id", cat_id );
+	ame_sack.setVar( "category_id", post_id );
 	ame_sack.setVar( "pickedDate", pickedDate );
 	ame_sack.setVar( "posttype", posttype );
 	ame_sack.onError = function() { alert('Ajax error on chosing new date') };
@@ -251,8 +249,7 @@ function ame_title_edit( cat_id, title_text, posttype ) {
 
 function ame_ajax_title_save( cat_id, posttype ) {
 	var newtitle = jQuery("input#ame_title" + cat_id).prop('value');
-	var ame_sack = new sack(
-	ameAjaxL10n.requestUrl);
+	var ame_sack = new sack( ajaxurl );
 	ame_sack.execute = 1;
 	ame_sack.method = 'POST';
 	ame_sack.setVar( "action", "ame_save_title" );
@@ -269,8 +266,7 @@ function ame_ajax_slug_save( cat_id, typenumber ) {
 		alert( ameAjaxL10n.slugEmpty );
 		return;
 	}
-	var ame_sack = new sack(
-	ameAjaxL10n.requestUrl);
+	var ame_sack = new sack( ajaxurl );
 	ame_sack.execute = 1;
 	ame_sack.method = 'POST';
 	ame_sack.setVar( "action", "ame_save_slug" );
@@ -283,8 +279,7 @@ function ame_ajax_slug_save( cat_id, typenumber ) {
 
 function ame_ajax_author_save( cat_id, typenumber ) {
 	var newauthor = jQuery("select#author-" + cat_id).prop('value');
-	var ame_sack = new sack(
-	ameAjaxL10n.requestUrl);
+	var ame_sack = new sack( ajaxurl );
 	ame_sack.execute = 1;
 	ame_sack.method = 'POST';
 	ame_sack.setVar( "action", "ame_save_author" );
@@ -296,20 +291,19 @@ function ame_ajax_author_save( cat_id, typenumber ) {
 }
 
 function ame_author_edit( post_id, posttype ) {
-	var ame_sack = new sack(
-	ameAjaxL10n.requestUrl);
+	var ame_sack = new sack( ajaxurl );
 	ame_sack.execute = 1;
 	ame_sack.method = 'POST';
 	ame_sack.setVar( "action", "ame_author_edit" );
 	ame_sack.setVar( "post_id", post_id );
+	ame_sack.setVar( "col_no", jQuery('.widefat thead tr th').length );
 	ame_sack.setVar( "posttype", posttype );
 	ame_sack.onError = function() { alert('Ajax error on editing author') };
 	ame_sack.runAJAX();
 }
 
 function ame_ajax_set_linkvisibility( link_id ) {
-	var ame_sack = new sack(
-	ameAjaxL10n.requestUrl);
+	var ame_sack = new sack( ajaxurl );
 	ame_sack.execute = 1;
 	ame_sack.method = 'POST';
 	ame_sack.setVar( "action", "ame_toggle_linkvisibility" );
@@ -324,8 +318,7 @@ function ame_edit_cancel( cat_id ) {
 }
 
 function ame_ajax_set_excludestatus( page_id, status_id ) {
-	var ame_sack = new sack(
-	ameAjaxL10n.requestUrl);
+	var ame_sack = new sack( ajaxurl );
 	ame_sack.execute = 1;
 	ame_sack.method = 'POST';
 	ame_sack.setVar( "action", "ame_toggle_excludestatus" );

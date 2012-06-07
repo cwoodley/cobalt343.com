@@ -7,7 +7,7 @@
  */
  
 /*
-Copyright 2008 Oliver Schlöbe (email : webmaster@schloebe.de)
+Copyright 2008-2012 Oliver Schlöbe (email : scripts@schloebe.de)
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -38,8 +38,6 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  * @return array
  */
 function ame_column_link_visibility( $defaults ) {
-	$wp_version = (!isset($wp_version)) ? get_bloginfo('version') : $wp_version;
-	
 	unset( $defaults['visible'] );
     $defaults['ame_link_visibility'] = '<abbr style="cursor:help;" title="' . __('Enhanced by Admin Management Xtended Plugin', 'admin-management-xtended') . ' ' . get_option("ame_version") . '">' . __('Visible') . '</abbr>';
     return $defaults;
@@ -76,8 +74,6 @@ add_filter('manage_link-manager_columns', 'ame_column_link_visibility', 3, 2);
  * @return array
  */
 function ame_column_link_categories( $defaults ) {
-	$wp_version = (!isset($wp_version)) ? get_bloginfo('version') : $wp_version;
-	
 	unset( $defaults['categories'] );
     $defaults['ame_link_categories'] = '<abbr style="cursor:help;" title="' . __('Enhanced by Admin Management Xtended Plugin', 'admin-management-xtended') . ' ' . get_option("ame_version") . '">' . __('Categories') . '</abbr>';
     return $defaults;
@@ -102,7 +98,7 @@ function ame_custom_column_link_categories( $ame_column_name, $ame_id ) {
 			if ( is_wp_error( $cat ) )
 				echo $cat->get_error_message();
 			$cat_name = $cat->name;
-			if ( $cat_id != $category )
+			if ( $ame_id != $category )
 				$cat_name = "<a href='link-manager.php?cat_id=$category'>$cat_name</a>";
 			$cat_names[] = $cat_name;
 		}
@@ -167,7 +163,7 @@ function ame_ajax_save_linkcategories() {
 		if ( is_wp_error( $cat ) )
 			echo $cat->get_error_message();
 		$cat_name = $cat->name;
-		if ( $cat_id != $category )
+		if ( $linkid != $category )
 			$cat_name = "<a href='link-manager.php?cat_id=$category'>$cat_name</a>";
 		$cat_names[] = $cat_name;
 	}

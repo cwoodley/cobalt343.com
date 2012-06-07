@@ -7,7 +7,7 @@
  */
  
 /*
-Copyright 2008-2011 Oliver Schlöbe (email : scripts@schloebe.de)
+Copyright 2008-2012 Oliver Schlöbe (email : scripts@schloebe.de)
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -38,8 +38,6 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  * @return array $defaults
  */
 function ame_column_page_actions( $defaults ) {
-	$wp_version = (!isset($wp_version)) ? get_bloginfo('version') : $wp_version;
-	
     $defaults['ame_page_actions'] = '<abbr style="cursor:help;" title="' . __('Enhanced by Admin Management Xtended Plugin', 'admin-management-xtended') . ' ' . get_option("ame_version") . '">' . __('Actions', 'admin-management-xtended') . '</abbr>' . ame_changeImgSet();
     return $defaults;
 }
@@ -56,8 +54,6 @@ function ame_column_page_actions( $defaults ) {
  */
 function ame_column_page_order( $defaults ) {
 	$current_page = basename($_SERVER['PHP_SELF'], ".php");
-	
-	$wp_version = (!isset($wp_version)) ? get_bloginfo('version') : $wp_version;
 	if( $current_page == 'edit-pages' ) $ame_column_heading = __('Page Order:', 'admin-management-xtended'); else $ame_column_heading = __('Post Order:', 'admin-management-xtended');
 	
 	$defaults['ame_page_order'] = '<abbr style="cursor:help;" title="' . __('Enhanced by Admin Management Xtended Plugin', 'admin-management-xtended') . ' ' . get_option("ame_version") . '">' . $ame_column_heading . '</abbr>';

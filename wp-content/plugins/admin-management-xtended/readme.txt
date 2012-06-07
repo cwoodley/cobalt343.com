@@ -16,34 +16,36 @@ It adds some icons to the posts/pages management panel with **AJAX-driven** CMS-
 
 [Developer on Google+](https://plus.google.com/118074611982254715031 "Developer on Google+") | [Developer on Twitter](http://twitter.com/wpseek "Developer on Twitter")
 
+**Looking for more WordPress plugins? Visit [www.schloebe.de/portfolio/](http://www.schloebe.de/portfolio/)**
+
 [vimeo http://vimeo.com/9598749]
 
 **Features:**
 
 * Ability to change post and page properties inline in the post or page management view
-* Toggling visibility with a single click
-* Changing the publication date with a neat comfortable calendar
+* Toggle visibility with a single click
+* Quick Edit for Taxonomies (Categories, Tags, Custom Taxonomies, ...)
+* Quick Edit for Custom Post Types (Title, Slug, Author, etc.)
+* Stick & unstick posts with a single click from within the posts listing panel
+* Change the publication date with a neat comfortable calendar
 * Change post/page title inline in posts/pages management view
-* **NEW in 0.8**: Change post/page slug inline in posts/pages management view
-* **NEW in 0.9**: Change page order inline in pages management view
-* **NEW in 0.9**: Show/hide invisible (draft/future) posts
-* **NEW in 0.9**: Toggle visibility of page order column
-* **NEW in 1.0**: Changing order of (top level) pages via Drag'n'Drop
-* **NEW in 1.2**: Changing categories inline on post management page (**inline category management**)
-* **NEW in 1.2**: Toggling comment status open/closed in posts/pages management view
-* **NEW in 1.3**: Changing tags inline on post management page (**inline tag management**)
-* **NEW in 1.3**: New default button set; now two different button sets selectable
-* **NEW in 1.4**: Change media order inline in media management view
-* **NEW in 1.5**: Change media description inline in media management view
-* **NEW in 1.6**: Open post revisions inline in post/page management view
-* **NEW in 1.7**: Change post/page author inline in post/page management view
-* **NEW in 1.8**: Changing link categories inline on link management page
-* **NEW in 1.8**: Toggling link visibility with a single click
-* **NEW in 1.9**: Time now can be chosen in the js popout calendar aswell
-* **NEW in 2.1.0**: Change *post order* inline in post management view (Props [Jeff Cole](http://www.coolcave.co.uk/ "Jeff Cole")
-* **NEW in 2.1.0**: Support for [Exclude Pages](http://wordpress.org/extend/plugins/exclude-pages/ "Exclude Pages") plugin
-* **Supports changing location/ renaming of wp-content/ folder with WP 2.6**
+* Change post/page slug inline in posts/pages management view
+* Change page order inline in pages management view
+* Change order of (top level) pages via Drag'n'Drop
+* Change categories inline on post management page (**inline category management**)
+* Toggle comment status open/closed in posts/pages management view
+* Change tags inline on post management page (**inline tag management**)
+* Change media order inline in media management view
+* Change media description inline in media management view
+* Open post revisions inline in post/page management view
+* Change post/page author inline in post/page management view
+* Change link categories inline on link management page
+* Toggle link visibility with a single click
+* Time now can be chosen in the js popout calendar aswell
+* Change *post order* inline in post management view (Props [Jeff Cole](http://www.coolcave.co.uk/ "Jeff Cole")
+* Support for [Exclude Pages](http://wordpress.org/extend/plugins/exclude-pages/ "Exclude Pages") plugin
 * Entirely possible to be localized, including the JS calendar
+* Two different button sets available
 
 **Included languages:**
 
@@ -69,8 +71,6 @@ It adds some icons to the posts/pages management panel with **AJAX-driven** CMS-
 * Ukranian (uk_UA) (Thanks for contributing ukranian language goes to ghost / http://antsar.info/)
 * Romanian (ro_RO) (Thanks for contributing romanian language goes to Anunturi Jibo / http://www.jibo.ro)
 * Slovak (sk_SK) (Thanks for contributing slovak language goes to Viliam Brozman / http://www.brozman.sk/blog)
-
-**Want update feeds, code documentation and more? Visit [extend.schloebe.de](http://extend.schloebe.de)**
 
 == Frequently Asked Questions ==
 
@@ -98,6 +98,15 @@ Please visit [the official website](http://www.schloebe.de/wordpress/admin-manag
 4. Installation finished.
 
 == Changelog ==
+
+= 2.3.0 =
+* FIXED: Several dozens of little fixes, improvements and compatibility issues
+* NEW: Quick Edit for Taxonomies (Categories, Tags, Custom Taxonomies, ...)
+* NEW: Quick Edit for Custom Post Types (Title, Slug, Author, etc.)
+* NEW: Stick & unstick posts with a single click from within the posts listing panel
+
+= 2.2.9 =
+* FIXED: Added slovak localization (Thanks to Viliam Brozman!)
 
 = 2.2.8 =
 * NEW: Added slovak localization (Thanks to Viliam Brozman!)
@@ -284,10 +293,14 @@ The save button on editing page title stopped working (Thanks to Michael Johnsto
 
 This plugins is released under the GPL, you can use it free of charge on your personal or commercial blog.
 
+= Notes on changing page order via Drag'n'Drop =
+
+Since Version 1.0 it is possible to change page order via drag'n'drop. Currently it's only possible to drag top level pages, that means only those pages with no parent pages. It is planned to make it possible for child pages, though.
+
 == Screenshots ==
 
 [For screenshots see here](http://www.schloebe.de/wordpress/admin-management-xtended-plugin/#screenshots)
 
-= Video Demo =
+= Video Demo (quite old, but you get an impression) =
 
 [vimeo http://vimeo.com/9598749]

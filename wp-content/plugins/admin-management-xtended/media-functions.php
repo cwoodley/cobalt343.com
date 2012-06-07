@@ -38,8 +38,6 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  * @return array
  */
 function ame_column_media_order( $defaults ) {
-	$wp_version = (!isset($wp_version)) ? get_bloginfo('version') : $wp_version;
-	
     $defaults['ame_media_order'] = '<abbr style="cursor:help;" title="' . __('Enhanced by Admin Management Xtended Plugin', 'admin-management-xtended') . ' ' . get_option("ame_version") . '">' . __('Media Order', 'admin-management-xtended') . '</abbr>';
     return $defaults;
 }
@@ -54,8 +52,6 @@ function ame_column_media_order( $defaults ) {
  * @return array
  */
 function ame_column_media_desc( $defaults ) {
-	$wp_version = (!isset($wp_version)) ? get_bloginfo('version') : $wp_version;
-	
 	unset($defaults['desc']);
     $defaults['ame_media_desc'] = '<abbr style="cursor:help;" title="' . __('Enhanced by Admin Management Xtended Plugin', 'admin-management-xtended') . ' ' . get_option("ame_version") . '">' . __('Description') . '</abbr>';
     return $defaults;

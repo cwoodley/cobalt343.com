@@ -1,14 +1,6 @@
 @import url(base.css);
 @import url(skeleton.css);
-/*
-* Skeleton V1.1
-* Copyright 2011, Dave Gamache
-* www.getskeleton.com
-* Free to use under the MIT license.
-* http://www.opensource.org/licenses/mit-license.php
-* 8/17/2011
-*/
-/* #Site Styles
+/* Compliled with SASS
 ================================================== */
 html, body {
   height: 100%; }
@@ -52,6 +44,9 @@ ul.nostyle {
 a {
   color: #2d2d2d; }
 
+h1 {
+  display: none; }
+
 body {
   background: #e6e6e6;
   color: #2d2d2d;
@@ -60,12 +55,22 @@ body {
 header#logo {
   font-size: 40px;
   letter-spacing: -1px;
+  line-height: 40px;
   margin: 65px 0; }
 
-nav#core-nav a {
-  text-decoration: none; }
-  nav#core-nav a:hover {
-    text-decoration: underline; }
+nav#core-nav {
+  margin-top: 65px;
+  padding-left: 52px;
+  text-align: right; }
+  nav#core-nav li {
+    display: inline;
+    margin-left: 20px; }
+  nav#core-nav a {
+    text-decoration: none; }
+    nav#core-nav a:hover {
+      text-decoration: none; }
+  nav#core-nav li.current_page_item a {
+    border-bottom: 2px solid #10aea1; }
 
 h1, h2, h3, h4, h5, h6 {
   color: #2d2d2d;
@@ -76,7 +81,7 @@ h1, h2, h3, h4, h5, h6 {
 .flexslider {
   background: none !important;
   border: none !important;
-  border-radius: 0; }
+  border-radius: 0 !important; }
 
 .flex-direction-nav li a {
   display: none; }
@@ -84,7 +89,7 @@ h1, h2, h3, h4, h5, h6 {
 .flex-control-nav li {
   margin: 0 0 0 10px; }
 .flex-control-nav a {
-  background: url("../../images/core/slide-control_nav.jpg");
+  background: url("../../images/core/slide-control_nav.png") !important;
   height: 8px;
   width: 8px; }
   .flex-control-nav a.active, .flex-control-nav a:hover {
@@ -92,8 +97,9 @@ h1, h2, h3, h4, h5, h6 {
 
 .flex-direction-nav li a {
   color: #fff;
-  width: auto;
-  height: auto;
+  background: url("../../images/core/slide-nav.png") no-repeat !important;
+  width: 38px !important;
+  height: 37px !important;
   margin: 0;
   display: block;
   background: none;
@@ -103,7 +109,10 @@ h1, h2, h3, h4, h5, h6 {
   cursor: pointer;
   text-indent: 0; }
   .flex-direction-nav li a.prev {
-    left: -3px; }
+    left: 20px; }
+  .flex-direction-nav li a.next {
+    right: 10px;
+    background-position: -38px 0 !important; }
 
 .flex-control-nav {
   bottom: -44px; }
@@ -116,12 +125,21 @@ h1, h2, h3, h4, h5, h6 {
     .flex-control-nav a.active {
       background-position: 0 -8px !important; }
 
+#footer {
+  text-align: center; }
+
+.gform_wrapper li.gfield.gfield_error, .gform_wrapper li.gfield.gfield_error.gfield_contains_required.gfield_creditcard_warning {
+  background: #F3F3F3 !important; }
+
 /* #Page Styles
 ================================================== */
 body.home #banner {
   border: 3px solid #cbcbcb;
   margin-bottom: 50px;
   max-height: 485px; }
+  body.home #banner li {
+    max-height: 485px;
+    overflow: hidden; }
 body.home .flexslider {
   background: none !important;
   border: none !important;
@@ -137,10 +155,10 @@ body.home .flex-control-nav a {
   body.home .flex-control-nav a.active, body.home .flex-control-nav a:hover {
     background-position: 0 -8px; }
 
-body.page-template-portfolio-php h1 {
-  display: none; }
 body.page-template-portfolio-php article.portfolio-item {
+  border-bottom: 1px solid #ccc;
   margin-bottom: 20px;
+  padding: 25px 0;
   width: 100%; }
   body.page-template-portfolio-php article.portfolio-item a {
     color: #10aea1;
@@ -152,20 +170,44 @@ body.page-template-portfolio-php article.portfolio-item {
   body.page-template-portfolio-php article.portfolio-item h2 {
     line-height: 20px;
     margin-bottom: 0; }
-  body.page-template-portfolio-php article.portfolio-item header.meta .five {
+  body.page-template-portfolio-php article.portfolio-item header.meta .nine {
     line-height: 18px;
     text-align: right; }
+  body.page-template-portfolio-php article.portfolio-item header.meta a {
+    line-height: 40px; }
   body.page-template-portfolio-php article.portfolio-item div.banner img {
     border: 3px solid #cbcbcb;
     display: block; }
+  body.page-template-portfolio-php article.portfolio-item li.notes ul {
+    margin-left: 20px; }
+  body.page-template-portfolio-php article.portfolio-item li.notes li {
+    list-style: disc; }
   body.page-template-portfolio-php article.portfolio-item footer {
     clear: both;
     display: block;
     text-align: center;
     width: 100%; }
   body.page-template-portfolio-php article.portfolio-item div.flexslider {
-    display: none;
     margin-bottom: 20px; }
+    body.page-template-portfolio-php article.portfolio-item div.flexslider img {
+      border: 4px solid #fff; }
+  body.page-template-portfolio-php article.portfolio-item ul {
+    line-height: 40px; }
+
+body.page-id-30 ul#findme li {
+  line-height: 20px; }
+  body.page-id-30 ul#findme li a {
+    border-radius: 4px;
+    color: #10aea1;
+    display: block;
+    padding: 8px 0 8px 44px; }
+    body.page-id-30 ul#findme li a#github {
+      background: url("../../images/core/icon-github.png") 11px 7px no-repeat; }
+    body.page-id-30 ul#findme li a#twitter {
+      background: url("../../images/core/icon-twitter.png") 6px 7px no-repeat; }
+    body.page-id-30 ul#findme li a:hover {
+      background-color: #d4d4d4 !important;
+      color: #2d2d2d; }
 
 /* #Media Queries
 ================================================== */

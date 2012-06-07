@@ -6,7 +6,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title> <?php the_title(); ?> &raquo; cobalt343.com</title>
+  <title> <?php the_title(); ?> &rsaquo; cobalt343.com</title>
 
   <meta name="description" content="<?php if (have_posts()): while (have_posts()): the_post(); echo strip_tags(get_the_excerpt()); endwhile; endif; ?>" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -21,6 +21,10 @@
   <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/media/stylesheets/compiled/style.css" />
 
   <?php wp_head(); ?>
+
+  <?php if (is_page('portfolio') || is_page('50')): ?>
+  <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/media/libs/flexslider/flexslider.css">
+  <?php endif ?>
 </head>
 
 <body <?php body_class(); ?>>
@@ -29,19 +33,21 @@
     
     <div id="main" class="sixteen columns clearfix">
       
-      <header id="logo">
-        Cale Woodley
-      </header>
+      <div class="five columns alpha omega">
+        <header id="logo">
+          Cale Woodley
+        </header>
+      </div>
 
-      <div class="columns three alpha">
+      <div class="eleven columns alpha omega">
         <nav id="core-nav">
           <ul>
             <?php
-            wp_list_pages('title_li=&exclude=');
+            wp_list_pages('title_li=&exclude=28');
             ?>
           </ul>
         </nav>
       </div>
 
-      <div id="page" class="columns thirteen omega">
+      <div id="page" class="sixteen columns clearfix alpha omega">
       

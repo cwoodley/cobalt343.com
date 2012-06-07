@@ -24,6 +24,7 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
+
 /* ************************************************ */
 /* Some stuff for editing tags inline				*/
 /* ************************************************ */
@@ -38,15 +39,13 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  * @return array
  */
 function ame_column_tag_actions( $defaults ) {
-	$wp_version = (!isset($wp_version)) ? get_bloginfo('version') : $wp_version;
-	
 	unset($defaults['tags']);
 	$defaults['ame_tag_actions'] = '<abbr style="cursor:help;" title="' . __('Enhanced by Admin Management Xtended Plugin', 'admin-management-xtended') . ' ' . get_option("ame_version") . '">' . __('Tags') . '</abbr>';
     return $defaults;
 }
 
 /**
- * Adds content to the modified 'Actions' column on the post management view
+ * Adds content to the modified 'Tags' column on the post management view
  *
  * @since 1.3.0
  * @author scripts@schloebe.de
@@ -58,6 +57,7 @@ function ame_custom_column_tag_actions( $ame_column_name, $ame_id ) {
 	global $wpdb, $locale;
     if( $ame_column_name == 'ame_tag_actions' ) {
     	$tags = get_the_tags( $ame_id );
+		$ame_post_tags = $ame_post_tags_plain = '';
 		if ( !empty( $tags ) ) {
 			$out = array();
 			foreach ( $tags as $c ) {
@@ -94,10 +94,8 @@ add_filter('manage_posts_columns', 'ame_column_tag_actions', 2, 1);
  * @return array
  */
 function ame_column_category_actions( $defaults ) {
-	$wp_version = (!isset($wp_version)) ? get_bloginfo('version') : $wp_version;
-	
 	unset($defaults['categories']);
-	if( $defaults['tags'] ) {
+	if( isset($defaults['tags']) && $defaults['tags'] ) {
 		$defaults['ame_cat_actions'] = '<abbr style="cursor:help;" title="' . __('Enhanced by Admin Management Xtended Plugin', 'admin-management-xtended') . ' ' . get_option("ame_version") . '">' . __('Categories') . '</abbr>';
 	}
     return $defaults;
@@ -114,10 +112,10 @@ function ame_column_category_actions( $defaults ) {
  */
 function ame_custom_column_category_actions( $ame_column_name, $ame_id ) {
 	global $wpdb, $locale;
-	$wp_version = (!isset($wp_version)) ? get_bloginfo('version') : $wp_version;
+	
     if( $ame_column_name == 'ame_cat_actions' ) {
     	$categories = get_the_category( $ame_id );
-    	$post_cats = "";
+    	$ame_post_cats = "";
 		if ( !empty( $categories ) ) {
 			$out = array();
 			foreach ( $categories as $c ) {
@@ -134,7 +132,7 @@ function ame_custom_column_category_actions( $ame_column_name, $ame_id ) {
 	<strong><a href="javascript:void(0);" onclick="ame_check_all(<?php echo $ame_id; ?>, true);"><?php _e('Check All'); ?></a></strong> | <strong><a href="javascript:void(0);" onclick="ame_check_all(<?php echo $ame_id; ?>, false);"><?php _e('Uncheck All'); ?></a></strong>
 	<ul id="categorychecklist" class="list:category categorychecklist form-no-clear" style="height:365px;overflow:auto;">
 		<?php
-		wp_category_checklist( $ame_id, 0, get_settings('default_category') );
+		wp_category_checklist( $ame_id, 0, get_option('default_category') );
 		?>
 	</ul>
 	<div style="text-align:center;"><input type="button" value="<?php _e('Save') ?>" class="button-primary" onclick="ame_ajax_save_categories(<?php echo $ame_id; ?>);return false;" />&nbsp;<input type="button" value="<?php _e('Cancel') ?>" class="button" onclick="tb_remove();" /></div>
@@ -168,8 +166,6 @@ add_filter('manage_posts_columns', 'ame_column_category_actions', 1, 1);
  * @return array
  */
 function ame_column_post_actions( $defaults ) {
-	$wp_version = (!isset($wp_version)) ? get_bloginfo('version') : $wp_version;
-	
 	$defaults['ame_post_actions'] = '<abbr style="cursor:help;" title="' . __('Enhanced by Admin Management Xtended Plugin', 'admin-management-xtended') . ' ' . get_option("ame_version") . '">' . __('Actions', 'admin-management-xtended') . '</abbr>' . ame_changeImgSet();
     return $defaults;
 }
@@ -187,29 +183,34 @@ function ame_custom_column_post_actions( $ame_column_name, $ame_id ) {
 	global $wpdb, $locale;
     if( $ame_column_name == 'ame_post_actions' && current_user_can( 'edit_post', $ame_id ) ) {
     	$post_status = get_post_status($ame_id); $q_post = get_post($ame_id);
-    	echo '<div style="width:75px;" class="ame_options">';
-    	if ( $post_status == 'publish' ) {
-    		// Visibility icon
-    		echo '<div id="visicon' . $ame_id . '" style="padding:1px;float:left;"><a href="javascript:void(0);" onclick="ame_ajax_set_visibility(' . $ame_id . ', \'draft\', \'post\');return false;"><img src="' . AME_PLUGINFULLURL . 'img/' . AME_IMGSET . 'visible.png" border="0" alt="' . __('Toggle visibility', 'admin-management-xtended') . '" title="' . __('Toggle visibility', 'admin-management-xtended') . '" /></a></div>';
-    	} else {
-    		// Visibility icon
-    		echo '<div id="visicon' . $ame_id . '" style="padding:1px;float:left;"><a href="javascript:void(0);" onclick="ame_ajax_set_visibility(' . $ame_id . ', \'publish\', \'post\');return false;"><img src="' . AME_PLUGINFULLURL . 'img/' . AME_IMGSET . 'hidden.png" border="0" alt="' . __('Toggle visibility', 'admin-management-xtended') . '" title="' . __('Toggle visibility', 'admin-management-xtended') . '" /></a></div>';
-    	}
+    	echo '<div style="width:90px;" class="ame_options">';
+		
+    	// Visibility icon
+    	$visstatus = ( $post_status == 'publish' ) ? 'draft' : 'publish';
+    	echo '<div id="visicon' . $ame_id . '" style="padding:1px;float:left;"><a href="javascript:void(0);" onclick="ame_ajax_set_visibility(' . $ame_id . ', \'' . $visstatus . '\', \'post\');return false;"><img src="' . AME_PLUGINFULLURL . 'img/' . AME_IMGSET . $visstatus . '.png" border="0" alt="' . __('Toggle visibility', 'admin-management-xtended') . '" title="' . __('Toggle visibility', 'admin-management-xtended') . '" /></a></div>';
+		
+    	// Sticky icon
+    	$stickyimg = ( is_sticky( $ame_id ) ) ? 'sticky.png' : 'nosticky.png';
+    	echo '<div id="stickyicon' . $ame_id . '" style="padding:1px;float:left;"><a href="javascript:void(0);" onclick="ame_ajax_set_sticky(' . $ame_id . ');return false;"><img src="' . AME_PLUGINFULLURL . 'img/' . AME_IMGSET . $stickyimg . '" border="0" alt="' . __('Stick this post to the front page') . '" title="' . __('Stick this post to the front page') . '" /></a></div>';
+		
     	// Date icon
     	echo '<div id="date' . $ame_id . '" style="padding:1px;float:left;"><a href="javascript:void(0);" class="date-pick" id="datepicker' . $ame_id . '"><img src="' . AME_PLUGINFULLURL . 'img/' . AME_IMGSET . 'date.png" border="0" alt="' . __('Change Publication Date', 'admin-management-xtended') . '" title="' . __('Change Publication Date', 'admin-management-xtended') . '" /></a></div>';
+		
     	// Slug edit icon
     	echo '<div id="slug' . $ame_id . '" style="padding:1px;float:left;"><a href="javascript:void(0);" id="slugedit' . $ame_id . '" onclick="ame_slug_edit(' . $ame_id . ', \'post\');"><img src="' . AME_PLUGINFULLURL . 'img/' . AME_IMGSET . 'slug_edit.png" border="0" alt="' . __('Edit Post Slug', 'admin-management-xtended') . '" title="' . __('Edit Post Slug', 'admin-management-xtended') . '" /></a></div>';
+		
     	// Comment open/closed status icon
-    	$q_commentstatus = get_post($ame_id);
-    	$comment_status = $q_commentstatus->comment_status;
+    	$comment_status = $q_post->comment_status;
     	if( $comment_status == 'open' ) { $c_status = 0; $c_img = '_open'; } else { $c_status = 1; $c_img = '_closed'; }
     	echo '<div id="commentstatus' . $ame_id . '" style="padding:1px;float:left;"><a href="javascript:void(0);" onclick="ame_ajax_set_commentstatus(' . $ame_id . ', ' . $c_status . ', \'post\');return false;"><img src="' . AME_PLUGINFULLURL . 'img/' . AME_IMGSET . 'comments' . $c_img . '.png" border="0" alt="' . __('Toggle comment status open/closed', 'admin-management-xtended') . '" title="' . __('Toggle comment status open/closed', 'admin-management-xtended') . '" /></a></div> ';
+		
 		// Post revisions
 		if( function_exists('wp_list_post_revisions') && wp_get_post_revisions( $ame_id ) ) {
 			echo '<input type="hidden" name="amehasrev' . $ame_id . '" class="amehasrev" value="1" /><div id="amerevisionwrap' . $ame_id . '" style="width:300px;height:165px;overflow:auto;display:none;">';
 			wp_list_post_revisions( $ame_id );
 			echo '</div>';
 		}
+		
     	echo '</div>';
     }
 }

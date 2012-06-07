@@ -1,32 +1,35 @@
 === Search and Replace ===
 Contributors: Bueltge
-Donate link: http://bueltge.de/wunschliste/
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=RHWH8VG798CSC
 Tags: database, mysql, search, replace, admin, security
 Requires at least: 1.5
-Tested up to: 3.4-Beta3
-Stable tag: 2.6.3
+Tested up to: 3.4-RC1
+Stable tag: 2.6.4
 
 A simple search for find strings in your database and replace the string.
 
 == Description ==
 A simple search for find strings in your database and replace the string. You can search in ID, post-content, GUID, titel, excerpt, meta-data, comments, comment-author, comment-e-mail, comment-url, tags/categories and categories-description. It is possible to replace the user-ID in all tables and the user-login for more security in the WordPress-Application ( [more Informations](http://wordpress-buch.bueltge.de/wordpress-sicherer-machen/30/ "about Security in WordPress") ).
 
-"Search and Replace" Originalplugin ist von [Mark Cunningham](http://thedeadone.net/ "Mark Cunningham") and was advanced (comments and comment-author) by [Gonahkar](http://www.gonahkar.com/ "Gonahkar"). More increments by Frank Bueltge.
+"Search and Replace" Originalplugin ist von [Mark Cunningham](http://thedeadone.net/ "Mark Cunningham") and was advanced (comments and comment-author) by [Gonahkar](http://www.gonahkar.com/ "Gonahkar"). More increments by my, Frank Bültge.
 
-Please visit [the official website](http://bueltge.de/wp-suchen-und-ersetzen-de-plugin/114/ "Search and Replace") for further details and the latest information on this plugin.
+**More Plugins**
+
+Please see also my [Premium Plugins](http://wpplugins.com/author/malo.conny/). Maybe you find an solution for your requirement.
+
+**Interested in WordPress tips and tricks**
+
+You may also be interested in WordPress tips and tricks at [WP Engineer](http://wpengineer.com/) or for german people [bueltge.de](http://bueltge.de/) 
 
 == Installation ==
+= Requirements =
+* WordPress version 3.0 and later (tested at 3.4 (RC1) and 3.3.2)
+
+= Installation =
 1. Unpack the download-package
 1. Upload all files to the `/wp-content/plugins/` directory, with folder
 1. Activate the plugin through the 'Plugins' menu in WordPress
 1. Got to Tools -> Search/Replace
-
-= More Plugins = 
-Please see also my [Premium Plugins](http://wpplugins.com/author/malo.conny/). Maybe you find an solution for your requirement.
-
-= Interested in WordPress tips and tricks =
-You may also be interested in WordPress tips and tricks at [WP Engineer](http://wpengineer.com/) or for german people [bueltge.de](http://bueltge.de/) 
-
 
 == Screenshots ==
 1. Functions in WordPress 2.7 beta
@@ -55,6 +58,9 @@ The plugin comes with various translations, please refer to the [WordPress Codex
 
 
 == Changelog ==
+= v2.6.4 =
+* Fix capability check, if the constant `DISALLOW_FILE_EDIT` ist defined
+
 = v2.6.3 (10/10/2011) =
 * filter for return values, html-filter
 * add belarussian language

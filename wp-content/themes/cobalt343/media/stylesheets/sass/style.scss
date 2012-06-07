@@ -1,13 +1,13 @@
-/*
-* Skeleton V1.1
-* Copyright 2011, Dave Gamache
-* www.getskeleton.com
-* Free to use under the MIT license.
-* http://www.opensource.org/licenses/mit-license.php
-* 8/17/2011
-*/
+// /*
+// * Skeleton V1.1
+// * Copyright 2011, Dave Gamache
+// * www.getskeleton.com
+// * Free to use under the MIT license.
+// * http://www.opensource.org/licenses/mit-license.php
+// * 8/17/2011
+// */
 
-/* #Site Styles
+/* Compliled with SASS
 ================================================== */
 @import "base.css";
 @import "skeleton.css";
@@ -34,7 +34,6 @@ img.alignleft, .alignleft img {margin: 0 20px 20px 0;}
 $highlight:#10aea1;
 $steel:#2d2d2d;
 
-
 ul.nostyle {
   margin: 0;
   padding:0;
@@ -43,6 +42,8 @@ ul.nostyle {
 }
 
 a {color: $steel;}
+
+h1 {display: none;}
 
 body {
   background:#e6e6e6;
@@ -53,15 +54,28 @@ body {
 header#logo {
   font-size: 40px;
   letter-spacing: -1px;
+  line-height: 40px;
   margin:65px 0;
 }
 
 nav#core-nav {
+  margin-top: 65px;
+  padding-left:52px;
+  text-align: right;
+
+  li {
+    display:inline;
+    margin-left: 20px;
+  }
 
   a {
     text-decoration: none;
 
-    &:hover {text-decoration: underline;}
+    &:hover {text-decoration: none;}
+  }
+
+  li.current_page_item {
+    a {border-bottom:2px solid $highlight}
   }
 }
 
@@ -73,63 +87,73 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 // =flex controls
+.flexslider {
+  background:none !important;
+  border:none !important;
+  border-radius:0 !important;
+}
 
-  .flexslider {
-    background:none !important;
-    border:none !important;
-    border-radius:0;
+.flex-direction-nav li a {
+  display: none;
+}
+
+.flex-control-nav {
+
+  li {
+    margin: 0 0 0 10px;
   }
 
-  .flex-direction-nav li a {
-    display: none;
+  a {
+    background:url('../../images/core/slide-control_nav.png') !important;
+    height: 8px;
+    width: 8px;
+
+    &.active, &:hover {background-position: 0 -8px;}
+  }
+}
+
+.flex-direction-nav li a {
+  color: #fff;
+  background: url('../../images/core/slide-nav.png') no-repeat !important;
+  width: 38px !important;
+  height: 37px !important;
+  margin: 0;
+  display: block;
+  background: none;
+  position: absolute;
+  right:0;
+  top: 105%;
+  cursor: pointer;
+  text-indent: 0;
+
+  &.prev {left: 20px;}
+  &.next {right: 10px; background-position:-38px 0 !important;}
+}
+
+.flex-control-nav {
+  bottom: -44px;
+
+  li {
+    margin: 0 0 0 10px;
   }
 
-  .flex-control-nav {
+  a {
+    background:url('../../images/core/slide-control_nav.jpg');
+    height: 8px !important;
+    width: 8px !important;
 
-    li {
-      margin: 0 0 0 10px;
-    }
-
-    a {
-      background:url('../../images/core/slide-control_nav.jpg');
-      height: 8px;
-      width: 8px;
-
-      &.active, &:hover {background-position: 0 -8px;}
-    }
+    &.active {background-position: 0 -8px !important;}
   }
+}
 
-  .flex-direction-nav li a {
-    color: #fff;
-    width: auto;
-    height: auto;
-    margin: 0;
-    display: block;
-    background: none;
-    position: absolute;
-    right:0;
-    top: 105%;
-    cursor: pointer;
-    text-indent: 0;
+#footer {
+  text-align: center;
+}
 
-    &.prev {left: -3px;}
-  }
-
-  .flex-control-nav {
-    bottom: -44px;
-
-    li {
-      margin: 0 0 0 10px;
-    }
-
-    a {
-      background:url('../../images/core/slide-control_nav.jpg');
-      height: 8px !important;
-      width: 8px !important;
-
-      &.active {background-position: 0 -8px !important;}
-    }
-  }
+// =forms
+.gform_wrapper li.gfield.gfield_error, .gform_wrapper li.gfield.gfield_error.gfield_contains_required.gfield_creditcard_warning {
+  background:#F3F3F3 !important;
+}
 
 /* #Page Styles
 ================================================== */
@@ -140,6 +164,8 @@ body.home {
     border:3px solid #cbcbcb;
     margin-bottom:50px;
     max-height:485px;
+
+    li {max-height:485px;overflow:hidden;}
   }
 
   .flexslider {
@@ -171,10 +197,10 @@ body.home {
 // =folio =port
 body.page-template-portfolio-php {
 
-  h1 {display: none;}
-
   article.portfolio-item {
+    border-bottom: 1px solid #ccc;
     margin-bottom: 20px;
+    padding: 25px 0;
     width: 100%;
 
     a {
@@ -192,10 +218,13 @@ body.page-template-portfolio-php {
     }
 
     header.meta {
-
-      .five {
+      .nine {
         line-height:18px;
         text-align:right;
+      }
+
+      a {
+        line-height:40px;
       }
     }
 
@@ -203,6 +232,15 @@ body.page-template-portfolio-php {
       img {
         border:3px solid #cbcbcb;
         display: block;
+      }
+    }
+
+    li.notes {
+      ul {
+        margin-left: 20px;
+      }
+      li {
+        list-style:disc;
       }
     }
 
@@ -214,11 +252,44 @@ body.page-template-portfolio-php {
     }
   
     div.flexslider {
-      display: none;
+      // display: none;
       margin-bottom:20px;
+
+      img {border: 4px solid #fff;}
+    }
+
+    ul {
+      line-height:40px;
     }
 
   }
+}
+
+// =contact
+body.page-id-30 {
+
+  ul#findme {
+
+    li {
+      line-height:20px;
+
+      a {
+        border-radius:4px;
+        color:$highlight;
+        display: block;
+        padding:8px 0 8px 44px;
+
+        &#github {background:url('../../images/core/icon-github.png') 11px 7px no-repeat;}
+        &#twitter {background:url('../../images/core/icon-twitter.png') 6px 7px no-repeat;}
+
+        &:hover {
+          background-color: #d4d4d4 !important;
+          color:$steel;
+        }
+      }
+    }    
+  }
+
 }
 
 /* #Media Queries

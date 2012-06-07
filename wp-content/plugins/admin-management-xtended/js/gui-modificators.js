@@ -49,3 +49,31 @@ function ame_roll_through_revision_rows() {
 		add_revision_links(this);
   	});
 }
+
+function ame_taxonomy_edit( id ) {
+	jQuery('tr#tag-' + id).find('.row-actions .editinline').click();
+}
+
+function add_taxonomy_edit_links( row ) {
+	var reg = "tag-([0-9]+)";
+	var Ausdruck = new RegExp(reg, "i");
+	var post_id = Ausdruck.exec(row.id)[1];
+	jQuery("a[href*='edit-tags.php?action=edit&taxonomy='].row-title", row).each(function() {
+		var title = jQuery(this).html();
+		title = title.replace(/— /g, "");
+		jQuery(this).after(' <a href="javascript:void(0);" onclick="ame_taxonomy_edit(' + post_id + ');"><img src="' + ameAjaxL10n.imgUrl + 'edit_small.gif" border="0" alt="' + ameAjaxL10n.Edit + '" title="' + ameAjaxL10n.Edit + '" /></a>');
+	});
+}
+
+function ame_roll_through_taxonomy_rows() {
+	jQuery(".widefat tr[id^='tag-']").each(function() {
+		add_taxonomy_edit_links( this );
+	});
+}
+
+
+jQuery(document).ready(function() {
+	if( adminpage == 'edit-tags-php' ) {
+		ame_roll_through_taxonomy_rows();
+	}
+});
